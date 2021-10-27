@@ -16,9 +16,10 @@ def user_signup(request):
     form = UserForm()
 
     if request.method == 'POST':
+        form = UserForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
-            return users(request)
+           form.save(commit=True)
+           return users(request)
         else:
             print('Form is invalid')
 
